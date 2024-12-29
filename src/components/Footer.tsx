@@ -116,15 +116,15 @@ const Footer = () => {
           {/* Social Links */}
           <div className="flex space-x-4 mt-4 md:mt-0">
             <a
-              href="https://www.facebook.com/Mdabdullah.allmamunhstu"
+              href="https://www.facebook.com/groups/ridersupport"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition"
             >
               <FaFacebook size={20} />
             </a>
-            <a
-              href="https://x.com/MdAbdullahAllM1"
+            {/* <a
+              href="https://x.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition"
@@ -132,13 +132,13 @@ const Footer = () => {
               <FaTwitter size={20} />
             </a>
             <a
-              href="https://www.linkedin.com/in/md-abdullah-all-mamun-435b1880"
+              href="https://www.linkedin.com/in"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition"
             >
               <FaLinkedin size={20} />
-            </a>
+            </a> */}
           </div>
         </div>
 
