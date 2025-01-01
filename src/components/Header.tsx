@@ -23,6 +23,8 @@ const navItems = [
     name: "Services",
     path: "services",
   },
+  { name: "Find Substitute", path: "substitute" },
+  { name: "Find SubContract", path: "subcontract" },
   { name: "Jobs", path: "jobs" },
   { name: "Blogs", path: "blogs" },
 ];
