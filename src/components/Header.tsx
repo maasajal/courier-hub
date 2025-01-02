@@ -46,14 +46,14 @@ const Header = () => {
         className="container mx-auto px-4 py-1"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
+        transition={{ duration: 1, delay: 0.1 }}
       >
         <Toolbar>
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -108,7 +108,7 @@ const Header = () => {
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -149,7 +149,7 @@ const Header = () => {
                 href=""
                 className="bg-blue-600 hover:bg-red-800 text-white py-2 font-bold rounded-full transition ml-5 w-32 justify-center"
               >
-                Join Now
+                Login
               </Link>
             </Button>
             <Button
