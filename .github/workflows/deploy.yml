@@ -27,8 +27,6 @@ jobs:
       # Step 4: Build the Next.js project
       - name: Build project
         run: |
-          NEXT_PUBLIC_API=${{secrets.NEXT_PUBLIC_API}} \
-          NEXT_PUBLIC_API_KEY=${{secrets.NEXT_PUBLIC_API_KEY}} \
           npm run build
 
       # Step 5: Export the project as a static site
@@ -46,3 +44,10 @@ jobs:
           protocol: ftp # Use 'ftp' for FTP or 'sftp' for SFTP
           local-dir: ./out/ # Static files exported by 'npm run export'
           server-dir: ./ # Change to your remote directory (where files should be uploaded)
+
+      - name: Clean up old files (Optional)
+        run: |
+          # This step is useful if you want to clean up old files in the server directory
+          # E.g., you can delete files older than a certain date or remove unnecessary files.
+          # This is not mandatory and should be used based on your needs.
+          echo "Clean up step goes here"
