@@ -1,3 +1,4 @@
+"use server";
 import { Box, Typography, Button, Container } from "@mui/material";
 
 const Banner: React.FC = () => {
