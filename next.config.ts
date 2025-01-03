@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export",
   experimental: {
     serverActions: true, // Enable Server Actions if needed
   },
