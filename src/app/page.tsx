@@ -1,13 +1,11 @@
-import Banner from "@/pages/home/Banner";
-import Services from "@/pages/home/Services";
+import Homepage from "@/components/home/Homepage";
 
 export default function Home() {
   return (
     <div>
       <main className="text-center">
-        <Banner />
+        <Homepage />
         <h1 className="uppercase py-5">Courier Hub - Kiitos Dost</h1>
-        <Services />
       </main>
     </div>
   );

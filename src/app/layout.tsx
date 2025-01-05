@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 // Custom components
+import AuthProvider from "../services/AuthProvider";
 import MUIProvider from "@/components/MUIProvider";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/components/shared/Header";
+import Footer from "@/components/shared/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,11 +33,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <MUIProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </MUIProvider>
+        <AuthProvider>
+          <MUIProvider>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </MUIProvider>
+        </AuthProvider>
       </body>
     </html>
   );
