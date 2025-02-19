@@ -49,8 +49,8 @@ const handler = NextAuth({
       },
     }),
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+      clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET!,
       authorization: {
         params: {
           scope: "openid email profile", // Ensure these scopes are included
@@ -58,8 +58,8 @@ const handler = NextAuth({
       },
     }),
     GitHubProvider({
-      clientId: process.env.GITHUB_ID!,
-      clientSecret: process.env.GITHUB_SECRET!,
+      clientId: process.env.NEXT_PUBLIC_GITHUB_ID!,
+      clientSecret: process.env.NEXT_PUBLIC_GITHUB_SECRET!,
     }),
   ],
   callbacks: {
@@ -82,17 +82,16 @@ const handler = NextAuth({
             email: emailToSave,
           });
 
-          if (!existingUser) {
-            console.log("Inserting new user:", {
-              name: nameToSave,
-              email: emailToSave,
-              image: imageToSave,
-            });
+          const newUser: Partial<User> =  {
+            name: nameToSave,
+            email: emailToSave,
+            image: imageToSave,
+          };
 
-            await userCollection.insertOne({
-              name,
-              email,
-            });
+          if (!existingUser) {
+            console.log("Inserting new user:", newUser);
+
+            await userCollection.insertOne(newUser);
           }
 
           return true;
