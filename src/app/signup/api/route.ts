@@ -28,7 +28,7 @@ export const POST = async (request: Request): Promise<NextResponse> => {
     const hashedPassword = bcrypt.hashSync(newUser.password, 14);
 
     // Insert the new user into the database
-    const res = await userCollection.insertOne({
+    await userCollection.insertOne({
       ...newUser,
       password: hashedPassword,
     });
