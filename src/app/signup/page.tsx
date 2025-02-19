@@ -27,7 +27,6 @@ const SignUp: React.FC = () => {
   const { register, handleSubmit, reset } = useForm<SignUpFormInputs>();
 
   const handleSignUp: SubmitHandler<SignUpFormInputs> = async (data) => {
-    console.log("signup data", data);
     try {
       const res = await axiosPublic.post("/signup/api", data);
       if (res.status === 200) {

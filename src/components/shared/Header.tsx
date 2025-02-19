@@ -14,6 +14,8 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import LoginIcon from "@mui/icons-material/Login";
 
+import { signOut, useSession } from "next-auth/react";
+
 const navItems = [
   {
     name: "Home",
@@ -31,6 +33,9 @@ const navItems = [
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+
+  const session = useSession();
+  console.log(session);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -140,13 +145,29 @@ const Header = () => {
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
+            {session?.status === "loading" && (
+              <span className="loading loading-dots loading-md"></span>
+            )}
+            {session?.status === "unauthenticated" && (
+              <Link href={"/login"} className="btn btn-outline text-red-400">
+                login
+              </Link>
+            )}
+            {session?.status === "authenticated" && (
+              <button
+                onClick={() => signOut()}
+                className="btn btn-outline text-red-400"
+              >
+                Sign Out
+              </button>
+            )}
             <Button
               sx={{
                 display: { xs: "none", md: "flex" },
               }}
             >
               <Link
-                href=""
+                href="/login"
                 className="bg-blue-600 hover:bg-red-800 text-white py-2 font-bold rounded-full transition ml-5 w-32 justify-center"
               >
                 Login
@@ -158,7 +179,7 @@ const Header = () => {
               }}
             >
               <Link
-                href="tel:+358449869280"
+                href="/login"
                 className="bg-blue-600 hover:bg-red-800 text-white text-lg px-5 py-2 rounded-full transition"
               >
                 <LoginIcon />
