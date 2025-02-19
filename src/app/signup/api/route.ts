@@ -47,5 +47,3 @@ export const POST = async (request: Request): Promise<NextResponse> => {
     );
   }
 };
-
-export default POST;
